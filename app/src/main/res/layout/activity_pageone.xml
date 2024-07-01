@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/textHora"
+        android:layout_width="313dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:clickable="true"
+        android:ems="10"
+        android:focusable="false"
+        android:hint="Selecione a hora"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textDate" />
+
+    <EditText
+        android:id="@+id/textPassageiro"
+        android:layout_width="315dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="Nome dos passageiros"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textHora" />
+
+    <EditText
+        android:id="@+id/textDate"
+        android:layout_width="313dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="148dp"
+        android:clickable="true"
+        android:ems="10"
+        android:focusable="false"
+        android:hint="Selecione a data"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seekBar1" />
+
+    <Button
+        android:id="@+id/buttonProx"
+        android:layout_width="179dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="25dp"
+        android:backgroundTint="@color/facemp"
+        android:drawableRight="@android:drawable/ic_media_play"
+        android:text="Proximo"
+        app:backgroundTint="@color/facemp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textPassageiro" />
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/materialToolbar2"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <SeekBar
+        android:id="@+id/seekBar1"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="173dp"
+        android:layout_height="17dp"
+        android:layout_marginTop="20dp"
+        android:max="10"
+        android:progress="3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialToolbar2" />
+
+    <EditText
+        android:id="@+id/txtName"
+        android:layout_width="313dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:hint="Nome do motorista"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/textDate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seekBar1" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
