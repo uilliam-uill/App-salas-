@@ -3,6 +3,7 @@ package com.example.appviagens.pages;
 import android.Manifest;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.sqlite.SQLiteDatabase;
 import android.location.Location;
@@ -14,6 +15,7 @@ import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -57,6 +59,7 @@ public class StartActivity extends AppCompatActivity {
     public static double longitude;
     public static float speed;
     public static float direction;
+    private EditText kmfim;
 
     private LocationManager locationManager;
     private Handler handler = new Handler();
@@ -69,6 +72,7 @@ public class StartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
         bd = openOrCreateDatabase("viagens", MODE_PRIVATE, null);
+        kmfim = findViewById(R.id.kmfim);
         sp = findViewById(R.id.speed);
         latitudes = new ArrayList<>();
         longitudes = new ArrayList<>();
@@ -111,6 +115,7 @@ public class StartActivity extends AppCompatActivity {
         encerrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String kmfimd = kmfim.getText().toString();
                 ContentValues valuesViagem = new ContentValues();
                 valuesViagem.put("nome_motorista", trip.getName_driver());
                 valuesViagem.put("date", trip.getDate_trip());
@@ -126,7 +131,7 @@ public class StartActivity extends AppCompatActivity {
                     valuesCarro.put("id_viagem", id);
                     valuesCarro.put("placa", trip.getPlate_car());
                     valuesCarro.put("km_inicial", trip.getKm_inc());
-                    valuesCarro.put("km_final", trip.getKm_fim());
+                    valuesCarro.put("km_final", kmfimd);
                     valuesCarro.put("estepe", trip.getSttepe());
                     valuesCarro.put("agua", trip.getWater());
                     valuesCarro.put("oleo", trip.getOil());
@@ -145,6 +150,8 @@ public class StartActivity extends AppCompatActivity {
                     bd.insert("localizacao", null, valuesLoc);
                 }
                 checkAndRequestSmsPermission();
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
 //                try {
 //                    SmsManager smsManager = SmsManager.getDefault();
 //                    smsManager.sendTextMessage("+5575982774608", null, "funcionou", null, null);
